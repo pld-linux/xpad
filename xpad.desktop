@@ -5,16 +5,16 @@ Version=1.0
 Name=xpad
 
 GenericName=Sticky Notes
-GenericName[de]=Selvklæbende Noter
-GenericName[fr]=Mémos Autocollants
+GenericName[de]=SelvklĂŚbende Noter
+GenericName[fr]=MĂŠmos Autocollants
 GenericName[it]=Note Adesive
 GenericName[pl]=karteczki
 
 Comment=Jot down notes for later
 Comment[de]=Tag hurtige noter til brug senere
 Comment[fr]=Prenez des notes pour plus tard
-Comment[it]=Prendi delle note per più tardi
-Comment[pl]=Notatki na p�niej
+Comment[it]=Prendi delle note per piĂš tardi
+Comment[pl]=Notatki na później
 
 FilePattern=xpad
 TryExec=xpad
@@ -27,3 +27,5 @@ StartupWMClass=xpad
 
 Type=Application
 Categories=Application;TODO;Utility;GTK;
+
+# vi: encoding=utf-8

@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
+# Source0-md5:	56d9c05c4bf0184922e380ae1353a4a3
 Source1:	%{name}.desktop
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	autoconf

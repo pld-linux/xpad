@@ -1,7 +1,7 @@
 Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
-Version:	1.10
+Version:	1.10.1
 Release:	1
 License:	GPL
 Group:		X11/Applications

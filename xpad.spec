@@ -1,40 +1,49 @@
 Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
-Version:	0.1.9.2
+Version:	1.9.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/xpad/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
 URL:		http://xpad.sourceforge.net/
-BuildRequires:	gtk+-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gtk+2-devel
+BuildRequires:	freetype-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
-Virtual sticky pad system. Can be used as tiny font browser:)
+Virtual sticky pad system.
 
 %description -l pl
-Program do umieszczania na pulpicie "karteczek z notatkami". Mo¿e byæ
-u¿ywany jako zgrabna przegl±darka fontów.
+Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %prep
 %setup -q
 
 %build
-%{__make} clean
-%{__make} CC="%{__cc} %{rpmcflags}"
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir}}
 
 install xpad $RPM_BUILD_ROOT%{_bindir}
+install xpad.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install xpad.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES
+%doc README CHANGES TODO
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
+%{_pixmapsdir}/*

@@ -1,0 +1,37 @@
+--- xpad-1.13.1/xpad.desktop.orig	2003-10-12 09:27:20.000000000 +0200
++++ xpad-1.13.1/xpad.desktop	2004-07-25 13:25:31.735845206 +0200
+@@ -4,23 +4,25 @@
+ 
+ Name=Xpad
+ GenericName=Sticky Notes
+-GenericName[dk]=Selvklæbende Noter
++GenericName[da]=Selvklæbende Noter
+ GenericName[eo]=Gluecanotoj
+ GenericName[es]=Notas pegajosas
+ GenericName[fr]=Mémos Autocollants
+ GenericName[ga]=Nótaí Greamaitheacha
+ GenericName[it]=Note Adesive
+ GenericName[nl]=Klevende notities
++GenericName[pl]=karteczki
+ GenericName[ro]=Note Lipicioase(sticky)
+ GenericName[ru]=Cтикеры
+ Comment=Jot down notes for later
+-Comment[dk]=Tag hurtige noter til brug senere
++Comment[da]=Tag hurtige noter til brug senere
+ Comment[eo]=Ekskribu notojn por pliposte
+ Comment[es]=Anotar más tarde
+ Comment[fr]=Prenez des notes pour plus tard
+ Comment[ga]=Breac nótaí le léamh ar ball
+ Comment[it]=Prendi delle note per più tardi
+ Comment[nl]=Notities aantekenen voor later
++Comment[pl]=Notatki na później
+ Comment[ro]=Notiţe pentru mai târziu
+ Comment[ru]=Заметки/стикеры на вашем рабочем столе
+ 
+@@ -34,4 +36,5 @@
+ StartupWMClass=xpad
+ 
+ Type=Application
+-Categories=Application;TODO;Utility;GTK;
++Categories=GTK;Utility;
++# vi: encoding=utf-8

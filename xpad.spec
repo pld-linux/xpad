@@ -24,7 +24,7 @@ u¿ywany jako zgrabna przegl±darka fontów.
 
 %build
 %{__make} clean
-%{__make}
+%{__make} CC="%{__cc} %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

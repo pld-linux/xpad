@@ -5,7 +5,7 @@ Version:	0.1.9.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://prdownloads.sourceforge.net/xpad/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/xpad/%{name}-%{version}.tar.gz
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

@@ -2,7 +2,7 @@ Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
 Version:	1.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
@@ -36,13 +36,13 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir},%{_applnkdir}/Office/Misc}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 rm $RPM_BUILD_ROOT/usr/share/applications/xpad.desktop
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -54,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-%{_applnkdir}/Office/Misc/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
 %{_datadir}/icons/hicolor/*/apps/*

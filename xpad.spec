@@ -37,8 +37,10 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir},%{_applnkdir}/Office/Misc}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-rm $RPM_BUILD_ROOT/usr/share/applications/xpad.desktop
+#%%{__make} install DESTDIR=$RPM_BUILD_ROOT
+install src/xpad $RPM_BUILD_ROOT%{_bindir}
+install images/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+install doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
 
 %clean

@@ -13,6 +13,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	freetype-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -2,12 +2,13 @@ Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
 Version:	1.11
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
 # Source0-md5:	70ffadb6ac44cb46893ff79c23c3f0c0
 Source1:	%{name}.desktop
+Patch0:		%{name}-locale_names.patch
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -25,6 +26,9 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv -f po/{dk,da}.po
 
 %build
 %{__libtoolize}

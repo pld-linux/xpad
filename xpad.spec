@@ -1,11 +1,12 @@
 Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
-Version:	1.9.1
+Version:	1.10
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,6 +25,7 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 %setup -q
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -32,18 +34,19 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir},%{_applnkdir}/Office/Misc}
 
-install xpad $RPM_BUILD_ROOT%{_bindir}
-install xpad.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install xpad.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
+rm $RPM_BUILD_ROOT/usr/share/applications/xpad.desktop
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES TODO
+%doc doc/README doc/ChangeLog doc/TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+%{_applnkdir}/Office/Misc/*
 %{_pixmapsdir}/*

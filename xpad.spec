@@ -1,19 +1,19 @@
 Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
-Version:	1.11
-Release:	3
+Version:	1.13.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
-# Source0-md5:	70ffadb6ac44cb46893ff79c23c3f0c0
-Source1:	%{name}.desktop
+Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.bz2
+# Source0-md5:	526c40adc1ffaa79f29647bb9d5fc404
 Patch0:		%{name}-locale_names.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://xpad.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	freetype-devel
-BuildRequires:	gtk+2-devel
+BuildRequires:	gettext-devel >= 0.11.5
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,26 +27,25 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 mv -f po/{dk,da}.po
 
 %build
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-rm $RPM_BUILD_ROOT/usr/share/applications/xpad.desktop
-
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -60,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
-%{_datadir}/icons/hicolor/*/apps/*
+%{_iconsdir}/hicolor/*/apps/*

@@ -1,18 +1,18 @@
 Summary:	Virtual sticky pad system
 Summary(pl):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
-Version:	1.10.1
+Version:	1.11
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xpad/%{name}-%{version}.tar.gz
-# Source0-md5:	56d9c05c4bf0184922e380ae1353a4a3
+# Source0-md5:	70ffadb6ac44cb46893ff79c23c3f0c0
 Source1:	%{name}.desktop
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel
 BuildRequires:	freetype-devel
+BuildRequires:	gtk+2-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,7 +28,7 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %build
 %{__libtoolize}
-%{__aclocal} -I m4
+%{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure
@@ -44,13 +44,16 @@ rm $RPM_BUILD_ROOT/usr/share/applications/xpad.desktop
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc doc/README doc/ChangeLog doc/TODO
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_applnkdir}/Office/Misc/*
 %{_pixmapsdir}/*
+%{_datadir}/icons/hicolor/*/apps/*

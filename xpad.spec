@@ -16,6 +16,7 @@ BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	xorg-lib-libSM-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

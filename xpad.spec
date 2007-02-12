@@ -1,5 +1,5 @@
 Summary:	Virtual sticky pad system
-Summary(pl.UTF-8):   Program do umieszczania na pulpicie "karteczek z notatkami"
+Summary(pl.UTF-8):	Program do umieszczania na pulpicie "karteczek z notatkami"
 Name:		xpad
 Version:	2.12
 Release:	1

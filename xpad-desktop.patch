@@ -1,18 +1,16 @@
-diff -urN xpad-2.10/xpad.desktop.in xpad-2.10.new/xpad.desktop.in
---- xpad-2.10/xpad.desktop.in	2004-04-27 00:09:02.000000000 +0000
-+++ xpad-2.10.new/xpad.desktop.in	2005-11-01 11:01:38.000000000 +0000
-@@ -2,18 +2,21 @@
- Encoding=UTF-8
- Version=0.9.4
- 
--_Name=Xpad
-+Name=Xpad
- _GenericName=Sticky Notes
+diff -burNp xpad-2.14/xpad.desktop xpad-2.14-new/xpad.desktop
+--- xpad-2.14/xpad.desktop	2007-11-07 04:08:52.000000000 +0100
++++ xpad-2.14-new/xpad.desktop	2009-01-22 14:44:14.454542475 +0100
+@@ -5,13 +5,15 @@ Name=Xpad
+ Name[zh_TW]=Xpad
+ GenericName=Sticky Notes
+ GenericName[zh_TW]=自粘性便條
 +GenericName[pl]=Karteczki
- _Comment=Jot down notes for later
-+Comment[pl]=Notatki na później
+ Comment=Jot down notes for later
+-Comment[zh_TW]=大略記下備註以供之後使用
++Comment[zh_TW]=大略記下備
++Comment[pl]=Notatki na później註以供之後使用
  
- FilePattern=xpad;
  TryExec=xpad
  Exec=xpad
  Terminal=false
@@ -21,8 +19,3 @@ diff -urN xpad-2.10/xpad.desktop.in xpad-2.10.new/xpad.desktop.in
  
  StartupNotify=true
  StartupWMClass=xpad
- 
- Type=Application
--Categories=Application;Utility;GTK;
-+Categories=GTK;Utility;
-+# vi: encoding=utf-8

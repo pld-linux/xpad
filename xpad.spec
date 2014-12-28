@@ -11,7 +11,7 @@ Patch0:		%{name}-desktop.patch
 URL:		http://xpad.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gettext-devel >= 0.11.5
+BuildRequires:	gettext-tools >= 0.11.5
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	libtool

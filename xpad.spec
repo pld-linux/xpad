@@ -30,7 +30,7 @@ Program do umieszczania na pulpicie "karteczek z notatkami".
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
